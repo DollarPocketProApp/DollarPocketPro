@@ -265,18 +265,60 @@ async function logout(){
   showLogin();
  }catch(error){alert('Logout failed: '+error.message);}
 }
+
+function getReferralCode(){
+ const user=window.dpFirebase.auth.currentUser;
+
+ if(!user) return null;
+
+ return 'DP-'+user.uid.toUpperCase();
+}
+
 function copyCode(){
- const code='DP-DEMO01';
+ const code=getReferralCode();
+
+ if(!code){
+  alert('Please log in first.');
+  return;
+ }
+
+ document.getElementById('refCode').textContent=code;
+
  if(navigator.clipboard){
-  navigator.clipboard.writeText(code).then(()=>alert('Code copied!')).catch(()=>alert(code));
- }else alert(code);
+  navigator.clipboard.writeText(code)
+   .then(()=>alert('Referral code copied!'))
+   .catch(()=>alert(code));
+ }else{
+  alert(code);
+ }
 }
+
 function shareInvite(){
- const message='Join DollarPocketPro! Referral code: DP-DEMO01';
- if(navigator.share)navigator.share({title:'DollarPocketPro',text:message}).catch(()=>{});
- else if(navigator.clipboard)navigator.clipboard.writeText(message).then(()=>alert('Invite copied!')).catch(()=>alert(message));
- else alert(message);
+ const code=getReferralCode();
+
+ if(!code){
+  alert('Please log in first.');
+  return;
+ }
+
+ document.getElementById('refCode').textContent=code;
+
+ const message='Join DollarPocketPro! Referral code: '+code;
+
+ if(navigator.share){
+  navigator.share({
+   title:'DollarPocketPro',
+   text:message
+  }).catch(()=>{});
+ }else if(navigator.clipboard){
+  navigator.clipboard.writeText(message)
+   .then(()=>alert('Invite copied!'))
+   .catch(()=>alert(message));
+ }else{
+  alert(message);
+ }
 }
+
 function soon(){alert('This feature is not active yet.');}
 </script>
 
