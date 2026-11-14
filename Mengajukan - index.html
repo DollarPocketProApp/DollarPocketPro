@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d18">
+<title>DollarPocketPro V6</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#080d18;color:#f5f6fa;
+ font-family:Arial,sans-serif;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+#auth{max-width:480px;margin:auto;padding:25px 20px}
+.logo{text-align:center;font-size:29px;font-weight:bold;color:#edc66d;margin:35px 0 8px}
+.subtitle{text-align:center;color:#9aa6ba;font-size:13px}
+.panel,.card{
+ background:#111b2d;border:1px solid #293751;
+ border-radius:16px;padding:19px;margin-top:17px;
+}
+h2{font-size:21px}
+h3{font-size:16px}
+p{color:#9aa6ba;font-size:13px;line-height:1.5}
+input{
+ width:100%;padding:14px;margin:8px 0;
+ border:1px solid #34445f;border-radius:10px;
+ background:#080f1e;color:white;outline:none;
+}
+input:focus{border-color:#edc66d}
+.primary{
+ width:100%;padding:14px;border:0;border-radius:10px;
+ background:linear-gradient(90deg,#d6a83e,#f4d47b);
+ color:#10131a;font-weight:bold;margin-top:12px;
+}
+.secondary{
+ width:100%;padding:12px;border:1px solid #465571;
+ border-radius:10px;background:#18243a;color:white;margin-top:10px;
+}
+.link{text-align:center;color:#edc66d;margin-top:17px;font-size:13px}
+.hidden{display:none!important}
+#app{display:none;max-width:520px;margin:auto;padding-bottom:90px}
+.topbar{padding:19px 20px;display:flex;justify-content:space-between;align-items:center}
+.topbar strong{font-size:20px;color:#edc66d}
+.avatar{padding:10px;background:#26354e;border-radius:50%}
+.section{padding:0 20px;margin-top:17px}
+.balance{
+ padding:23px;border-radius:18px;
+ background:linear-gradient(135deg,#172b47,#30445e);
+ border:1px solid #4a5d77;
+}
+.balance small{color:#b8c4d6}
+.amount{font-size:35px;font-weight:bold;color:#f4d47b;margin:13px 0}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:13px}
+.stat{padding:16px;background:#111b2d;border:1px solid #293751;border-radius:13px}
+.stat strong{display:block;color:#edc66d;font-size:21px;margin-top:8px}
+.title{font-size:19px;font-weight:bold;margin-bottom:12px}
+.card{margin-top:11px}
+.tag{font-size:10px;color:#edc66d;background:#303047;padding:6px 9px;border-radius:20px}
+.notice{background:#292518;border:1px solid #68552b;color:#e9d29a;padding:13px;border-radius:11px;font-size:12px;line-height:1.5}
+.page{display:none}
+.page.active{display:block}
+.nav{
+ position:fixed;bottom:0;left:0;right:0;max-width:520px;margin:auto;
+ display:flex;justify-content:space-around;background:#111b2d;
+ border-top:1px solid #293751;padding:11px 2px;z-index:10;
+}
+.nav button{background:none;border:0;color:#8997ad;font-size:10px}
+.nav button.active{color:#edc66d}
+.nav span{display:block;font-size:20px;margin-bottom:4px}
+.refcode{text-align:center;color:#edc66d;padding:15px;border:1px dashed #edc66d;border-radius:10px;margin:12px 0;font-weight:bold}
+footer{text-align:center;color:#66738a;font-size:11px;padding:25px}
+</style>
+</head>
+
+<body>
+
+<div id="auth">
+ <div class="logo">DollarPocketPro</div>
+ <div class="subtitle">Smart Digital Rewards Platform</div>
+
+ <div class="panel" id="loginBox">
+  <h2>Welcome Back</h2>
+  <p>Sign in to access your dashboard.</p>
+  <input id="loginEmail" type="email" placeholder="Email Address">
+  <input id="loginPass" type="password" placeholder="Password">
+  <button class="primary" onclick="demoEnter()">SIGN IN</button>
+  <div class="link" onclick="showRegister()">Create New Account</div>
+ </div>
+
+ <div class="panel hidden" id="registerBox">
+  <h2>Create Account</h2>
+  <p>Join DollarPocketPro today.</p>
+  <input id="fullName" type="text" placeholder="Full Name">
+  <input id="regEmail" type="email" placeholder="Email Address">
+  <input id="regPass" type="password" placeholder="Password (6+ characters)">
+  <button class="primary" onclick="demoRegister()">REGISTER NOW</button>
+  <div class="link" onclick="showLogin()">Already have an account? Sign In</div>
+ </div>
+ <footer>DollarPocketPro V6.0</footer>
+</div>
+
+<div id="app">
+ <div class="topbar">
+  <strong>DollarPocketPro</strong>
+  <div class="avatar">👤</div>
+ </div>
+
+ <!-- HOME -->
+ <div id="homePage" class="page active">
+  <div class="section">
+   <p id="welcome">Welcome!</p>
+   <div class="balance">
+    <small>AVAILABLE DEMO BALANCE</small>
+    <div class="amount">$0.00</div>
+    <small>Your demo wallet balance</small>
+   </div>
+   <div class="stats">
+    <div class="stat"><p>Total Earnings</p><strong>$0.00</strong></div>
+    <div class="stat"><p>Completed Tasks</p><strong>0</strong></div>
+   </div>
+  </div>
+  <div class="section">
+   <div class="title">Featured</div>
+   <div class="card">
+    <span class="tag">COMING SOON</span>
+    <h3>Sponsored Opportunities</h3>
+    <p>Verified partner opportunities will be displayed here after integration.</p>
+    <button class="secondary" onclick="go('missions')">Explore Missions</button>
+   </div>
+   <div class="notice">This is a development version. No real cash earnings or withdrawals are currently enabled.</div>
+  </div>
+ </div>
+
+ <!-- MISSIONS -->
+ <div id="missionsPage" class="page">
+  <div class="section">
+   <div class="title">Missions Center</div>
+   <div class="card"><span class="tag">COMING SOON</span><h3>📝 Paid Surveys</h3><p>Complete eligible surveys from verified partners.</p><button class="secondary" onclick="soon()">Coming Soon</button></div>
+   <div class="card"><span class="tag">COMING SOON</span><h3>📱 App Offers</h3><p>Explore sponsored application offers.</p><button class="secondary" onclick="soon()">Coming Soon</button></div>
+   <div class="card"><span class="tag">COMING SOON</span><h3>🎮 Game Offers</h3><p>Discover eligible sponsored game activities.</p><button class="secondary" onclick="soon()">Coming Soon</button></div>
+   <div class="card"><span class="tag">COMING SOON</span><h3>🎁 Daily Tasks</h3><p>Daily activities will be added later.</p><button class="secondary" onclick="soon()">Coming Soon</button></div>
+  </div>
+ </div>
+
+ <!-- WALLET -->
+ <div id="walletPage" class="page">
+  <div class="section">
+   <div class="title">My Wallet</div>
+   <div class="balance">
+    <small>DEMO BALANCE</small>
+    <div class="amount">$0.00</div>
+    <small>Real withdrawals are not active.</small>
+   </div>
+   <div class="card">
+    <h3>PayPal Payout</h3>
+    <p>PayPal integration is not connected yet.</p>
+    <input type="email" placeholder="PayPal Email" disabled>
+    <button class="secondary" onclick="soon()">Withdrawal Coming Soon</button>
+   </div>
+   <div class="card"><h3>Transaction History</h3><p>No transactions available.</p></div>
+  </div>
+ </div>
+
+ <!-- REFERRAL -->
+ <div id="referralPage" class="page">
+  <div class="section">
+   <div class="title">Referral Program</div>
+   <div class="card">
+    <h3>Invite Friends</h3>
+    <p>Share your invitation code with friends. Tracking and rewards are not active yet.</p>
+    <div class="refcode" id="refCode">DP-DEMO01</div>
+    <button class="primary" onclick="copyCode()">COPY CODE</button>
+    <button class="secondary" onclick="shareInvite()">SHARE INVITE</button>
+   </div>
+   <div class="stats">
+    <div class="stat"><p>Total Referrals</p><strong>0</strong></div>
+    <div class="stat"><p>Referral Rewards</p><strong>$0.00</strong></div>
+   </div>
+  </div>
+ </div>
+
+ <!-- PROFILE -->
+ <div id="profilePage" class="page">
+  <div class="section">
+   <div class="title">My Profile</div>
+   <div class="card">
+    <h3 id="profileName">DollarPocket User</h3>
+    <p id="profileEmail">Email Address</p>
+    <span class="tag">MEMBER</span>
+   </div>
+   <div class="card"><h3>Account Settings</h3><p>More settings coming soon.</p></div>
+   <button class="secondary" onclick="logout()">SIGN OUT</button>
+  </div>
+ </div>
+
+ <div class="nav" id="nav">
+  <button class="active" onclick="go('home')"><span>⌂</span>Home</button>
+  <button onclick="go('missions')"><span>▣</span>Missions</button>
+  <button onclick="go('wallet')"><span>◈</span>Wallet</button>
+  <button onclick="go('referral')"><span>♧</span>Referral</button>
+  <button onclick="go('profile')"><span>●</span>Profile</button>
+ </div>
+</div>
+
+<script>
+function showRegister(){
+ document.getElementById('loginBox').classList.add('hidden');
+ document.getElementById('registerBox').classList.remove('hidden');
+}
+function showLogin(){
+ document.getElementById('registerBox').classList.add('hidden');
+ document.getElementById('loginBox').classList.remove('hidden');
+}
+async function demoRegister(){
+ const n=document.getElementById('fullName').value.trim();
+ const e=document.getElementById('regEmail').value.trim();
+ const p=document.getElementById('regPass').value;
+ if(!n||!e||!p){alert('Please complete all fields.');return;}
+ if(p.length<6){alert('Password must be at least 6 characters.');return;}
+ try{
+  const result=await window.dpFirebase.createUserWithEmailAndPassword(window.dpFirebase.auth,e,p);
+  await window.dpFirebase.setDoc(
+   window.dpFirebase.doc(window.dpFirebase.db,'users',result.user.uid),
+   {displayName:n,email:e,createdAt:window.dpFirebase.serverTimestamp()}
+  );
+  alert('Account created successfully!');
+  showLogin();
+ }catch(error){alert('Registration failed: '+error.message);}
+}
+async function demoEnter(){
+ const e=document.getElementById('loginEmail').value.trim();
+ const p=document.getElementById('loginPass').value;
+ if(!e||!p){alert('Please enter your email and password.');return;}
+ try{
+  const result=await window.dpFirebase.signInWithEmailAndPassword(window.dpFirebase.auth,e,p);
+  const profileDoc=await window.dpFirebase.getDoc(
+   window.dpFirebase.doc(window.dpFirebase.db,'users',result.user.uid)
+  );
+  const profile=profileDoc.exists()?profileDoc.data():{};
+  const name=profile.displayName||'DollarPocket User';
+  document.getElementById('auth').style.display='none';
+  document.getElementById('app').style.display='block';
+  document.getElementById('welcome').textContent='Welcome, '+name;
+  document.getElementById('profileName').textContent=name;
+  document.getElementById('profileEmail').textContent=result.user.email||e;
+  go('home');
+ }catch(error){alert('Login failed: '+error.message);}
+}
+function go(page){
+ document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+ document.getElementById(page+'Page').classList.add('active');
+ document.querySelectorAll('.nav button').forEach(el=>el.classList.remove('active'));
+ const i=['home','missions','wallet','referral','profile'].indexOf(page);
+ if(i>=0)document.querySelectorAll('.nav button')[i].classList.add('active');
+}
+async function logout(){
+ try{
+  await window.dpFirebase.signOut(window.dpFirebase.auth);
+  document.getElementById('app').style.display='none';
+  document.getElementById('auth').style.display='block';
+  showLogin();
+ }catch(error){alert('Logout failed: '+error.message);}
+}
+function copyCode(){
+ const code='DP-DEMO01';
+ if(navigator.clipboard){
+  navigator.clipboard.writeText(code).then(()=>alert('Code copied!')).catch(()=>alert(code));
+ }else alert(code);
+}
+function shareInvite(){
+ const message='Join DollarPocketPro! Referral code: DP-DEMO01';
+ if(navigator.share)navigator.share({title:'DollarPocketPro',text:message}).catch(()=>{});
+ else if(navigator.clipboard)navigator.clipboard.writeText(message).then(()=>alert('Invite copied!')).catch(()=>alert(message));
+ else alert(message);
+}
+function soon(){alert('This feature is not active yet.');}
+</script>
+
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+import {
+ getAuth,createUserWithEmailAndPassword,
+ signInWithEmailAndPassword,signOut,onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import {
+ getFirestore,doc,getDoc,setDoc,serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+const firebaseConfig={
+ apiKey:"AIzaSyAXs4huP-jn1YjZDyZu-PCFRmU34osRF5I",
+ authDomain:"dollarpocketpro.firebaseapp.com",
+ projectId:"dollarpocketpro",
+ storageBucket:"dollarpocketpro.firebasestorage.app",
+ messagingSenderId:"548115427871",
+ appId:"1:548115427871:web:3868cf072f00bab10f5b2a",
+ measurementId:"G-2NGXC8X8H0"
+};
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+
+window.dpFirebase={
+ auth,db,createUserWithEmailAndPassword,
+ signInWithEmailAndPassword,signOut,onAuthStateChanged,
+ doc,getDoc,setDoc,serverTimestamp
+};
+console.log('DollarPocketPro V6 Firebase ready');
+</script>
+
+</body>
+</html>
