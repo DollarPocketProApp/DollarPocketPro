@@ -71,7 +71,11 @@ input:focus{border-color:#edc66d}
 .nav button{background:none;border:0;color:#8997ad;font-size:10px}
 .nav button.active{color:#edc66d}
 .nav span{display:block;font-size:20px;margin-bottom:4px}
-.refcode{text-align:center;color:#edc66d;padding:15px;border:1px dashed #edc66d;border-radius:10px;margin:12px 0;font-weight:bold}
+.refcode{
+ text-align:center;color:#edc66d;padding:15px;
+ border:1px dashed #edc66d;border-radius:10px;
+ margin:12px 0;font-weight:bold;overflow-wrap:anywhere;
+}
 footer{text-align:center;color:#66738a;font-size:11px;padding:25px}
 </style>
 </head>
@@ -100,10 +104,12 @@ footer{text-align:center;color:#66738a;font-size:11px;padding:25px}
   <button class="primary" onclick="demoRegister()">REGISTER NOW</button>
   <div class="link" onclick="showLogin()">Already have an account? Sign In</div>
  </div>
+
  <footer>DollarPocketPro V6.0</footer>
 </div>
 
 <div id="app">
+
  <div class="topbar">
   <strong>DollarPocketPro</strong>
   <div class="avatar">👤</div>
@@ -113,25 +119,39 @@ footer{text-align:center;color:#66738a;font-size:11px;padding:25px}
  <div id="homePage" class="page active">
   <div class="section">
    <p id="welcome">Welcome!</p>
+
    <div class="balance">
-    <small>AVAILABLE DEMO BALANCE</small>
+    <small>AVAILABLE BALANCE</small>
     <div class="amount">$0.00</div>
-    <small>Your demo wallet balance</small>
    </div>
+
    <div class="stats">
-    <div class="stat"><p>Total Earnings</p><strong>$0.00</strong></div>
-    <div class="stat"><p>Completed Tasks</p><strong>0</strong></div>
+    <div class="stat">
+     <p>Total Earnings</p>
+     <strong>$0.00</strong>
+    </div>
+    <div class="stat">
+     <p>Completed Tasks</p>
+     <strong>0</strong>
+    </div>
    </div>
   </div>
+
   <div class="section">
    <div class="title">Featured</div>
+
    <div class="card">
     <span class="tag">COMING SOON</span>
     <h3>Sponsored Opportunities</h3>
     <p>Verified partner opportunities will be displayed here after integration.</p>
-    <button class="secondary" onclick="go('missions')">Explore Missions</button>
+    <button class="secondary" onclick="go('missions')">
+     Explore Missions
+    </button>
    </div>
-   <div class="notice">This is a development version. No real cash earnings or withdrawals are currently enabled.</div>
+
+   <div class="notice">
+    Real cash earnings and withdrawals are not yet enabled.
+   </div>
   </div>
  </div>
 
@@ -139,10 +159,34 @@ footer{text-align:center;color:#66738a;font-size:11px;padding:25px}
  <div id="missionsPage" class="page">
   <div class="section">
    <div class="title">Missions Center</div>
-   <div class="card"><span class="tag">COMING SOON</span><h3>📝 Paid Surveys</h3><p>Complete eligible surveys from verified partners.</p><button class="secondary" onclick="soon()">Coming Soon</button></div>
-   <div class="card"><span class="tag">COMING SOON</span><h3>📱 App Offers</h3><p>Explore sponsored application offers.</p><button class="secondary" onclick="soon()">Coming Soon</button></div>
-   <div class="card"><span class="tag">COMING SOON</span><h3>🎮 Game Offers</h3><p>Discover eligible sponsored game activities.</p><button class="secondary" onclick="soon()">Coming Soon</button></div>
-   <div class="card"><span class="tag">COMING SOON</span><h3>🎁 Daily Tasks</h3><p>Daily activities will be added later.</p><button class="secondary" onclick="soon()">Coming Soon</button></div>
+
+   <div class="card">
+    <span class="tag">COMING SOON</span>
+    <h3>📝 Paid Surveys</h3>
+    <p>Complete eligible surveys from verified partners.</p>
+    <button class="secondary" onclick="soon()">Coming Soon</button>
+   </div>
+
+   <div class="card">
+    <span class="tag">COMING SOON</span>
+    <h3>📱 App Offers</h3>
+    <p>Explore sponsored application offers.</p>
+    <button class="secondary" onclick="soon()">Coming Soon</button>
+   </div>
+
+   <div class="card">
+    <span class="tag">COMING SOON</span>
+    <h3>🎮 Game Offers</h3>
+    <p>Discover eligible sponsored game activities.</p>
+    <button class="secondary" onclick="soon()">Coming Soon</button>
+   </div>
+
+   <div class="card">
+    <span class="tag">COMING SOON</span>
+    <h3>🎁 Daily Tasks</h3>
+    <p>Daily activities will be added later.</p>
+    <button class="secondary" onclick="soon()">Coming Soon</button>
+   </div>
   </div>
  </div>
 
@@ -150,18 +194,26 @@ footer{text-align:center;color:#66738a;font-size:11px;padding:25px}
  <div id="walletPage" class="page">
   <div class="section">
    <div class="title">My Wallet</div>
+
    <div class="balance">
-    <small>DEMO BALANCE</small>
+    <small>BALANCE</small>
     <div class="amount">$0.00</div>
-    <small>Real withdrawals are not active.</small>
+    <small>Minimum withdrawal: $37.00</small>
    </div>
+
    <div class="card">
     <h3>PayPal Payout</h3>
-    <p>PayPal integration is not connected yet.</p>
-    <input type="email" placeholder="PayPal Email" disabled>
-    <button class="secondary" onclick="soon()">Withdrawal Coming Soon</button>
+    <p>Withdraw your available balance directly to your PayPal account.</p>
+    <label>PayPal Email Address</label>
+    <input type="email" placeholder="Enter your PayPal email" disabled>
+    <button class="secondary" onclick="soon()">WITHDRAW</button>
+    <small>PayPal withdrawals are not active yet.</small>
    </div>
-   <div class="card"><h3>Transaction History</h3><p>No transactions available.</p></div>
+
+   <div class="card">
+    <h3>Transaction History</h3>
+    <p>No transactions available.</p>
+   </div>
   </div>
  </div>
 
@@ -169,16 +221,26 @@ footer{text-align:center;color:#66738a;font-size:11px;padding:25px}
  <div id="referralPage" class="page">
   <div class="section">
    <div class="title">Referral Program</div>
+
    <div class="card">
     <h3>Invite Friends</h3>
     <p>Share your invitation code with friends. Tracking and rewards are not active yet.</p>
-    <div class="refcode" id="refCode">DP-DEMO01</div>
+
+    <div class="refcode" id="refCode">Please sign in to view your code.</div>
+
     <button class="primary" onclick="copyCode()">COPY CODE</button>
     <button class="secondary" onclick="shareInvite()">SHARE INVITE</button>
    </div>
+
    <div class="stats">
-    <div class="stat"><p>Total Referrals</p><strong>0</strong></div>
-    <div class="stat"><p>Referral Rewards</p><strong>$0.00</strong></div>
+    <div class="stat">
+     <p>Total Referrals</p>
+     <strong>0</strong>
+    </div>
+    <div class="stat">
+     <p>Referral Rewards</p>
+     <strong>$0.00</strong>
+    </div>
    </div>
   </div>
  </div>
@@ -187,16 +249,23 @@ footer{text-align:center;color:#66738a;font-size:11px;padding:25px}
  <div id="profilePage" class="page">
   <div class="section">
    <div class="title">My Profile</div>
+
    <div class="card">
     <h3 id="profileName">DollarPocket User</h3>
     <p id="profileEmail">Email Address</p>
     <span class="tag">MEMBER</span>
    </div>
-   <div class="card"><h3>Account Settings</h3><p>More settings coming soon.</p></div>
+
+   <div class="card">
+    <h3>Account Settings</h3>
+    <p>More settings coming soon.</p>
+   </div>
+
    <button class="secondary" onclick="logout()">SIGN OUT</button>
   </div>
  </div>
 
+ <!-- NAVIGATION -->
  <div class="nav" id="nav">
   <button class="active" onclick="go('home')"><span>⌂</span>Home</button>
   <button onclick="go('missions')"><span>▣</span>Missions</button>
@@ -204,74 +273,153 @@ footer{text-align:center;color:#66738a;font-size:11px;padding:25px}
   <button onclick="go('referral')"><span>♧</span>Referral</button>
   <button onclick="go('profile')"><span>●</span>Profile</button>
  </div>
+
 </div>
 
 <script>
+
 function showRegister(){
  document.getElementById('loginBox').classList.add('hidden');
  document.getElementById('registerBox').classList.remove('hidden');
 }
+
 function showLogin(){
  document.getElementById('registerBox').classList.add('hidden');
  document.getElementById('loginBox').classList.remove('hidden');
 }
+
 async function demoRegister(){
  const n=document.getElementById('fullName').value.trim();
  const e=document.getElementById('regEmail').value.trim();
  const p=document.getElementById('regPass').value;
- if(!n||!e||!p){alert('Please complete all fields.');return;}
- if(p.length<6){alert('Password must be at least 6 characters.');return;}
+
+ if(!n||!e||!p){
+  alert('Please complete all fields.');
+  return;
+ }
+
+ if(p.length<6){
+  alert('Password must be at least 6 characters.');
+  return;
+ }
+
  try{
-  const result=await window.dpFirebase.createUserWithEmailAndPassword(window.dpFirebase.auth,e,p);
+  const result=await window.dpFirebase.createUserWithEmailAndPassword(
+   window.dpFirebase.auth,e,p
+  );
+
   await window.dpFirebase.setDoc(
    window.dpFirebase.doc(window.dpFirebase.db,'users',result.user.uid),
-   {displayName:n,email:e,createdAt:window.dpFirebase.serverTimestamp()}
+   {
+    displayName:n,
+    email:e,
+    createdAt:window.dpFirebase.serverTimestamp()
+   }
   );
+
   alert('Account created successfully!');
   showLogin();
- }catch(error){alert('Registration failed: '+error.message);}
+
+ }catch(error){
+  alert('Registration failed: '+error.message);
+ }
 }
+
 async function demoEnter(){
  const e=document.getElementById('loginEmail').value.trim();
  const p=document.getElementById('loginPass').value;
- if(!e||!p){alert('Please enter your email and password.');return;}
+
+ if(!e||!p){
+  alert('Please enter your email and password.');
+  return;
+ }
+
  try{
-  const result=await window.dpFirebase.signInWithEmailAndPassword(window.dpFirebase.auth,e,p);
-  const profileDoc=await window.dpFirebase.getDoc(
-   window.dpFirebase.doc(window.dpFirebase.db,'users',result.user.uid)
+  const result=await window.dpFirebase.signInWithEmailAndPassword(
+   window.dpFirebase.auth,e,p
   );
+
+  const profileDoc=await window.dpFirebase.getDoc(
+   window.dpFirebase.doc(
+    window.dpFirebase.db,'users',result.user.uid
+   )
+  );
+
   const profile=profileDoc.exists()?profileDoc.data():{};
   const name=profile.displayName||'DollarPocket User';
+
   document.getElementById('auth').style.display='none';
   document.getElementById('app').style.display='block';
+
   document.getElementById('welcome').textContent='Welcome, '+name;
   document.getElementById('profileName').textContent=name;
   document.getElementById('profileEmail').textContent=result.user.email||e;
+
+  displayReferralCode();
   go('home');
- }catch(error){alert('Login failed: '+error.message);}
+
+ }catch(error){
+  alert('Login failed: '+error.message);
+ }
 }
+
 function go(page){
- document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+ document.querySelectorAll('.page').forEach(el=>{
+  el.classList.remove('active');
+ });
+
  document.getElementById(page+'Page').classList.add('active');
- document.querySelectorAll('.nav button').forEach(el=>el.classList.remove('active'));
+
+ document.querySelectorAll('.nav button').forEach(el=>{
+  el.classList.remove('active');
+ });
+
  const i=['home','missions','wallet','referral','profile'].indexOf(page);
- if(i>=0)document.querySelectorAll('.nav button')[i].classList.add('active');
+
+ if(i>=0){
+  document.querySelectorAll('.nav button')[i].classList.add('active');
+ }
+
+ if(page==='referral'){
+  displayReferralCode();
+ }
 }
+
 async function logout(){
  try{
   await window.dpFirebase.signOut(window.dpFirebase.auth);
+
   document.getElementById('app').style.display='none';
   document.getElementById('auth').style.display='block';
+
+  document.getElementById('refCode').textContent='Please sign in to view your code.';
+
   showLogin();
- }catch(error){alert('Logout failed: '+error.message);}
+
+ }catch(error){
+  alert('Logout failed: '+error.message);
+ }
 }
 
-function getReferralCode(){
- const user=window.dpFirebase.auth.currentUser;
+/* REFERRAL CODE */
 
- if(!user) return null;
+function getReferralCode(){
+ const user=window.dpFirebase?.auth?.currentUser;
+
+ if(!user){
+  return null;
+ }
 
  return 'DP-'+user.uid.toUpperCase();
+}
+
+function displayReferralCode(){
+ const code=getReferralCode();
+ const box=document.getElementById('refCode');
+
+ if(box){
+  box.textContent=code||'Please sign in to view your code.';
+ }
 }
 
 function copyCode(){
@@ -282,7 +430,7 @@ function copyCode(){
   return;
  }
 
- document.getElementById('refCode').textContent=code;
+ displayReferralCode();
 
  if(navigator.clipboard){
   navigator.clipboard.writeText(code)
@@ -293,43 +441,69 @@ function copyCode(){
  }
 }
 
-function shareInvite(){
- const code=getReferralCode();
+async function shareInvite(){
+ try{
+  const code=getReferralCode();
 
- if(!code){
-  alert('Please log in first.');
-  return;
- }
+  if(!code){
+   alert('Please log in first.');
+   return;
+  }
 
- document.getElementById('refCode').textContent=code;
+  displayReferralCode();
 
- const message='Join DollarPocketPro! Referral code: '+code;
+  const link='https://dollarpocketproapp.github.io/DollarPocketPro/?ref='+encodeURIComponent(code);
 
- if(navigator.share){
-  navigator.share({
-   title:'DollarPocketPro',
-   text:message
-  }).catch(()=>{});
- }else if(navigator.clipboard){
-  navigator.clipboard.writeText(message)
-   .then(()=>alert('Invite copied!'))
-   .catch(()=>alert(message));
- }else{
-  alert(message);
+  const message='Join DollarPocketPro!\n'+
+   'Register here: '+link+'\n'+
+   'Referral code: '+code;
+
+  if(navigator.share){
+   await navigator.share({
+    title:'DollarPocketPro Invitation',
+    text:message,
+    url:link
+   });
+
+  }else if(navigator.clipboard){
+   await navigator.clipboard.writeText(message);
+   alert('Referral invitation link copied!');
+
+  }else{
+   alert(message);
+  }
+
+ }catch(error){
+  if(error.name!=='AbortError'){
+   alert('Share error: '+error.message);
+  }
  }
 }
 
-function soon(){alert('This feature is not active yet.');}
+function soon(){
+ alert('This feature is not active yet.');
+}
+
 </script>
 
 <script type="module">
+
 import {initializeApp} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
 import {
- getAuth,createUserWithEmailAndPassword,
- signInWithEmailAndPassword,signOut,onAuthStateChanged
+ getAuth,
+ createUserWithEmailAndPassword,
+ signInWithEmailAndPassword,
+ signOut,
+ onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
 import {
- getFirestore,doc,getDoc,setDoc,serverTimestamp
+ getFirestore,
+ doc,
+ getDoc,
+ setDoc,
+ serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const firebaseConfig={
@@ -341,16 +515,26 @@ const firebaseConfig={
  appId:"1:548115427871:web:3868cf072f00bab10f5b2a",
  measurementId:"G-2NGXC8X8H0"
 };
+
 const app=initializeApp(firebaseConfig);
 const auth=getAuth(app);
 const db=getFirestore(app);
 
 window.dpFirebase={
- auth,db,createUserWithEmailAndPassword,
- signInWithEmailAndPassword,signOut,onAuthStateChanged,
- doc,getDoc,setDoc,serverTimestamp
+ auth,
+ db,
+ createUserWithEmailAndPassword,
+ signInWithEmailAndPassword,
+ signOut,
+ onAuthStateChanged,
+ doc,
+ getDoc,
+ setDoc,
+ serverTimestamp
 };
+
 console.log('DollarPocketPro V6 Firebase ready');
+
 </script>
 
 </body>
